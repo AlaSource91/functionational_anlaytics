@@ -14,6 +14,17 @@ public class Order
         this.products = products;
     }
 
+    public List<String> getAllProductsUnPaidStatus()
+    {
+        //Only return products if the order is unpaid
+        if (this.paidStatus.equalsIgnoreCase(StatusPay.UNPAID.getValue()))
+        {
+            return  products.stream()
+                    .map(Product::getName)
+                    .toList();
+        }
+        return new ArrayList<>();
+    }
     public List<String> getAllProductsPurcheByStatusOrder()
     {
         // Only return products if the order is paid

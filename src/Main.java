@@ -32,6 +32,13 @@ public class Main {
         System.out.println("Paid Status: " + order.getPaidStatus());
         System.out.println("Products in Order: " + order.getAllProductsPurcheByStatusOrder());
 
-
+        Order orderUnPaid = new Order("02",StatusPay.UNPAID.getValue(),
+                List.of(
+                        new Product("03", "Book", new BigDecimal("19.99"), new Category("c3", "Books")),
+                        new Product("04", "Headphones", new BigDecimal("79.99"), new Category("c1", "Electronics"))
+                ));
+      System.out.println("Order ID: " + orderUnPaid.getId());
+      System.out.println("Paid Status: " + orderUnPaid.getPaidStatus());
+      System.out.println("Products in Order: " + orderUnPaid.getAllProductsUnPaidStatus());
     }
 }
