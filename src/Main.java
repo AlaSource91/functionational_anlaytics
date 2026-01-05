@@ -46,9 +46,9 @@ public class Main {
         //Check if any Order is paid
         boolean isPaidOrder = order.CheckIfOrderIsPaid(orders);
         System.out.println("Is there any paid order? " + isPaidOrder);
-      System.out.println("Order ID: " + orderUnPaid.getId());
-      System.out.println("Paid Status: " + orderUnPaid.getPaidStatus());
-      System.out.println("Products in Order: " + orderUnPaid.getAllProductsUnPaidStatus());
+        System.out.println("Order ID: " + orderUnPaid.getId());
+        System.out.println("Paid Status: " + orderUnPaid.getPaidStatus());
+       System.out.println("Products in Order: " + orderUnPaid.getAllProductsUnPaidStatus());
 
 
       //Total From All Users
