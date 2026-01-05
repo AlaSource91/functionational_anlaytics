@@ -30,7 +30,7 @@ public class Main {
         // Example: Print order products if paid
         System.out.println("Order ID: " + order.getId());
         System.out.println("Paid Status: " + order.getPaidStatus());
-        System.out.println("Products in Order: " + order.getAllProductsPurcheByStatusOrder());
+        System.out.println("Products in Order: " + order.getAllProductsPurchaseByStatusOrder());
 
         Order orderUnPaid = new Order("02",StatusPay.UNPAID.getValue(),
                 List.of(
