@@ -40,5 +40,11 @@ public class Main {
       System.out.println("Order ID: " + orderUnPaid.getId());
       System.out.println("Paid Status: " + orderUnPaid.getPaidStatus());
       System.out.println("Products in Order: " + orderUnPaid.getAllProductsUnPaidStatus());
+
+
+      //Calacute Total Revenue from all paid orders
+        BigDecimal totalRevenue = order
+                .totalRevenue();
+        System.out.println("Total Revenue from paid orders: " + totalRevenue);
     }
 }

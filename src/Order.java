@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,7 +26,19 @@ public class Order
         }
         return new ArrayList<>();
     }
-    public List<String> getAllProductsPurcheByStatusOrder()
+
+    public BigDecimal totalRevenue()
+    {
+        // Only calculate revenue if the Order is Paid
+        if (this.paidStatus.equalsIgnoreCase(StatusPay.PAID.getValue()))
+        {
+            return products.stream()
+                    .map(Product::getPrice)
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+        }
+        return BigDecimal.ZERO;
+    }
+    public List<String> getAllProductsPurchaseByStatusOrder()
     {
         // Only return products if the order is paid
         if (this.paidStatus.equalsIgnoreCase(StatusPay.PAID.getValue())) {
