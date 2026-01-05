@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.sql.Struct;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -103,6 +104,13 @@ public class Order
               .anyMatch(order -> order.getPaidStatus().equalsIgnoreCase(StatusPay.PAID.getValue()));
   }
 
+  public Order findFirstOrderUnPaid(List<Order> orders)
+  {
+      return orders
+               .stream()
+               .filter(order -> order.getPaidStatus().equalsIgnoreCase(StatusPay.UNPAID.getValue()))
+                .findFirst().orElseThrow();
+  }
   public boolean checkIfProductPriceIsZeroOrNegative()
   {
         return products

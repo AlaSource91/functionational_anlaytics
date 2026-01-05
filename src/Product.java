@@ -1,4 +1,5 @@
 import java.math.BigDecimal;
+import java.util.List;
 
 public class Product
 {
@@ -34,6 +35,13 @@ public class Product
         this.name = name;
     }
 
+    public Product productGreaterThan100USD(List<Product> products) {
+
+     return    products.stream()
+                .filter(product -> product.getPrice().compareTo(new BigDecimal("10.0")) > 0)
+                .findAny()
+             .orElseThrow();
+    }
     public BigDecimal getPrice() {
         return price;
     }

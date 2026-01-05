@@ -71,8 +71,18 @@ public class Main {
         List<String> underAgeUsers = User.findUsersUnderAge(user);
         System.out.println("Users under age 18: " + underAgeUsers);
 
+
         boolean priceIsNegativeOrZero = order.checkIfProductPriceIsZeroOrNegative();
         System.out.println("Is there any product with price zero or negative? " + priceIsNegativeOrZero);
+        Order findFirstUnPaidOrder = order.findFirstOrderUnPaid(orders);
+        System.out.println("First unpaid order ID: " + findFirstUnPaidOrder.getId());
+        System.out.println("First unpaid order Paid Status: " + findFirstUnPaidOrder.getPaidStatus());
+        System.out.println("First unpaid order Products: " + findFirstUnPaidOrder);
+       Product product = products.stream()
+                .filter(p -> p.getPrice().compareTo(new BigDecimal("100.0")) > 0)
+                .findAny()
+                .orElseThrow();
+        System.out.println("Product with price greater than 100 USD: " + product);
 
     }
 }
