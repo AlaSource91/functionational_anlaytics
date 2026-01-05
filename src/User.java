@@ -101,6 +101,16 @@ public class User
         this.orders.add(order);
     }
 
+    public static BigDecimal  calacuteRevenueByCategory(String categoryId , List<User> users)
+    {
+          return users.stream()
+                  .flatMap(user -> user.getOrders().stream())
+                  .flatMap(order -> order.getProducts().stream())
+                  .filter(product -> product.getCategory().getId().equalsIgnoreCase(categoryId))
+                  .map(Product::getPrice)
+                  .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+
     // toString method
     @Override
     public String toString() {

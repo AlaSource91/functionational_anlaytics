@@ -35,6 +35,23 @@ public class Product
         this.name = name;
     }
 
+    public Long countProductByCategory(String categoryId , List<Product> products)
+    {
+        return products.stream()
+                .filter(product -> product.getCategory()
+                        .getId().equalsIgnoreCase(categoryId))
+                .count();
+    }
+    public List<Product> productByCategory(String categoryId , List<Product> products)
+    {
+             return
+                     products.stream()
+                             .filter(product ->
+                                     product.getCategory() != null &&
+                                     product.getCategory().getId()  != null &&
+                                     product.getCategory().getId().equalsIgnoreCase(categoryId))
+                             .toList();
+    }
     public Product productGreaterThan100USD(List<Product> products) {
 
      return    products.stream()

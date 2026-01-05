@@ -8,7 +8,7 @@ public class Main {
             new Product("01", "Laptop", new BigDecimal("999.99"), new Category("c1", "Electronics")),
             new Product("02", "Smartphone", new BigDecimal("499.99"), new Category("c2", "Electronics")),
             new Product("03", "Book", new BigDecimal("19.99"), new Category("c3", "Books")),
-            new Product("04", "Headphones", new BigDecimal("79.99"), new Category("c1", "Electronics"))
+            new Product("04", "Headphones", new BigDecimal("120.99"), new Category("c1", "Electronics"))
         );
 
         // Create an order with selected products
@@ -83,6 +83,16 @@ public class Main {
                 .findAny()
                 .orElseThrow();
         System.out.println("Product with price greater than 100 USD: " + product);
+        //Get products by category
+        List<Product> productsByCategory = product.productByCategory("c1", products);
+        System.out.println("Products in category 'c1': " + productsByCategory);
+         //Count products in category
+        Long countProductsInCategory = product.countProductByCategory("c1", products);
+        System.out.println("Number of products in category 'c1': " + countProductsInCategory);
+
+        //Total Revenue from ProductBy Category
+        BigDecimal totaRevenueFromCategory = User.calacuteRevenueByCategory("c1", user);
+        System.out.println("Total Revenue from category 'c1': " + totaRevenueFromCategory);
 
     }
 }
