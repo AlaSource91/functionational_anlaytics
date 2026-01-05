@@ -103,8 +103,13 @@ public class Order
               .anyMatch(order -> order.getPaidStatus().equalsIgnoreCase(StatusPay.PAID.getValue()));
   }
 
+  public boolean checkIfProductPriceIsZeroOrNegative()
+  {
+        return products
+                .stream()
+                .anyMatch(product -> product.getPrice().compareTo(BigDecimal.ZERO) <= 0);
+  }
     // toString method
-
     @Override
     public String toString() {
         return "Order{" +

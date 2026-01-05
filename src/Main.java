@@ -71,5 +71,8 @@ public class Main {
         List<String> underAgeUsers = User.findUsersUnderAge(user);
         System.out.println("Users under age 18: " + underAgeUsers);
 
+        boolean priceIsNegativeOrZero = order.checkIfProductPriceIsZeroOrNegative();
+        System.out.println("Is there any product with price zero or negative? " + priceIsNegativeOrZero);
+
     }
 }
