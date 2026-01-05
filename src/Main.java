@@ -49,5 +49,14 @@ public class Main {
         BigDecimal totalRevenue = order
                 .totalRevenue();
         System.out.println("Total Revenue from paid orders: " + totalRevenue);
+
+        //Get Most Expensive Product in the Order
+        String productName = order.getMostExpensiveProduct();
+        System.out.println("Most expensive product in the order: " + productName);
+
+        //Get Most Cheaper Product in the Order
+        String cheaperProductName = order.getMostCheaperProduct();
+        System.out.println("Most cheaper product in the order: " + cheaperProductName);
+
     }
 }

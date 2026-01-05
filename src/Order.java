@@ -1,5 +1,6 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 public class Order
@@ -76,6 +77,22 @@ public class Order
 
     public int getTotalProductCount() {
         return products.size();
+    }
+
+    public String getMostCheaperProduct()
+    {
+        return  products.stream()
+                .min(Comparator.comparing(Product::getPrice))
+                .map(Product::getName)
+                .orElse("No Products");
+    }
+    public String getMostExpensiveProduct()
+    {
+        return products
+                .stream()
+                .max((p1, p2) -> p1.getPrice().compareTo(p2.getPrice()))
+                .map(Product::getName)
+                .orElse("No Products");
     }
 
     // toString method
