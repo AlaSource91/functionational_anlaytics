@@ -95,6 +95,14 @@ public class Order
                 .orElse("No Products");
     }
 
+    //check if any Order is Paid
+  public Boolean CheckIfOrderIsPaid(List<Order> orders)
+  {
+      return   orders
+              .stream()
+              .anyMatch(order -> order.getPaidStatus().equalsIgnoreCase(StatusPay.PAID.getValue()));
+  }
+
     // toString method
 
     @Override

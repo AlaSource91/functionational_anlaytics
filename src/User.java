@@ -1,6 +1,7 @@
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class User
 {
@@ -45,6 +46,21 @@ public class User
                 .toList();
     }
 
+    public static List<String> findUsersUnderAge(List<User> users)
+    {
+        return users
+                .stream()
+                .filter(user -> user.getAge() < 18)
+                .map(User::getName)
+                .toList();
+    }
+
+    public static boolean checkIfAnyUserUnderAge(List<User> users)
+    {
+        return users
+                .stream()
+                .anyMatch(user -> user.getAge() < 18);
+    }
     public static BigDecimal totalRevenueFromAllUsers(List< User> users)
     {
         return users
