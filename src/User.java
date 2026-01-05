@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -44,6 +45,17 @@ public class User
                 .toList();
     }
 
+    public static BigDecimal totalRevenueFromAllUsers(List< User> users)
+    {
+        return users
+                .stream()
+                .flatMap(user -> user.getOrders()
+                        .stream())
+                .flatMap(order -> order.getProducts().stream())
+                .map(Product::getPrice)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+    }
     public static List<String> getAllProductPurchasesByUsers(List<User> users)
     {
         return users.stream()

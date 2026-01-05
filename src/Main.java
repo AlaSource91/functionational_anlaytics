@@ -42,6 +42,9 @@ public class Main {
       System.out.println("Products in Order: " + orderUnPaid.getAllProductsUnPaidStatus());
 
 
+      //Total From All Users
+        BigDecimal totalFromAllUsers = User.totalRevenueFromAllUsers(user);
+        System.out.println("Total Revenue from all users: " + totalFromAllUsers);
       //Calacute Total Revenue from all paid orders
         BigDecimal totalRevenue = order
                 .totalRevenue();
